@@ -37,7 +37,7 @@ public class CarrosResource {
                             .field("valor", 45300)
                             .field("carroceria", "hatch").endObject())
                     .get();
-            return new ResponseEntity<String>("Sucesso", HttpStatus.OK);
+            return new ResponseEntity<String>(indexResponse.getResult().toString(), HttpStatus.OK);
         }catch(UnknownHostException uhe){
             return new ResponseEntity<String>("Falha ao tentar criar o TransportClient para o Elasticsearch. Motivo: " + uhe.getCause() + ", Message: " + uhe.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }catch(IOException ioe){
